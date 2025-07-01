@@ -1,0 +1,35 @@
+<div>
+  <h2>{{ isEdit ? 'Editar Alumno' : 'Nuevo Alumno' }}</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Nombre:
+      <input formControlName="nombreAlumno">
+      <div *ngIf="form.get('nombreAlumno')?.invalid && form.get('nombreAlumno')?.touched">
+        Nombre debe tener entre 4 y 50 caracteres.
+      </div>
+    </label>
+
+    <label>Apellido Paterno:
+      <input formControlName="paternoAlumno">
+      <div *ngIf="form.get('paternoAlumno')?.invalid && form.get('paternoAlumno')?.touched">
+        Apellido paterno debe tener entre 4 y 50 caracteres.
+      </div>
+    </label>
+
+    <label>Apellido Materno:
+      <input formControlName="maternoAlumno">
+      <div *ngIf="form.get('maternoAlumno')?.invalid && form.get('maternoAlumno')?.touched">
+        Apellido materno debe tener entre 4 y 50 caracteres.
+      </div>
+    </label>
+
+    <label>Correo:
+      <input formControlName="correoAlumno">
+      <div *ngIf="form.get('correoAlumno')?.invalid && form.get('correoAlumno')?.touched">
+        Ingresa un correo válido (4-150 caracteres).
+      </div>
+    </label>
+
+    <button type="submit" [disabled]="form.invalid">Guardar</button>
+    <button type="button" (click)="cancel()">Cancelar</button>
+  </form>
+</div>

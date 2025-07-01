@@ -1,0 +1,29 @@
+<div>
+  <h2>Lista de Alumnos</h2>
+  <button (click)="create()">Nuevo Alumno</button>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of alumnos">
+        <td>{{a.idAlumno}}</td>
+        <td>{{a.nombreAlumno}}</td>
+        <td>{{a.paternoAlumno}}</td>
+        <td>{{a.maternoAlumno}}</td>
+        <td>{{a.correoAlumno}}</td>
+        <td>
+          <button (click)="edit(a.idAlumno!)">Editar</button>
+          <button (click)="delete(a.idAlumno!)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
